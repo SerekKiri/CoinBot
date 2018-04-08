@@ -21,6 +21,37 @@ client.on('message', async (message) => {
     crypto.eth(message)
   }
 
+  if (command === 'ltc') {
+    crypto.ltc(message)
+  }
+
+  if (command === 'bcc') {
+    crypto.bcc(message)
+  }
+  
+  if (command === 'lsk') {
+    crypto.lsk(message)
+  }
+  
+  if (command === 'game') {
+    crypto.game(message)
+  }
+
+  if (command === 'dash') {
+    crypto.dash(message)
+  }
+
+  if (command === 'btg') {
+    crypto.btg(message)
+  }
+
+  if (command === 'kzc') {
+    crypto.kzc(message)
+  }
+
+  if (command === 'xin') {
+    crypto.xin(message)
+  }
 
 })
 
