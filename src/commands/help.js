@@ -4,7 +4,9 @@ const help = (message) => {
         - !btc
         - !eth
         - !ltc
-        - !
+        - !btg
+        - !dash
+        - !game
     `)
 }
 

@@ -40,20 +40,4 @@ const btg = async (message) => {
   await message.reply(`BTG: ${btgQuery.data.bid} PLN`)
 }
 
-const kzc = async (message) => {
-  const kzcQuery = await axios.get('https://bitbay.net/API/Public/KZCPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`KZC: ${kzcQuery.data.bid} PLN`)
-}
-
-const xin = async (message) => {
-  const xinQuery = await axios.get('https://bitbay.net/API/Public/XINPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`XIN: ${xinQuery.data.bid} PLN`)
-}
-
-const xrp = async (message) => {
-  const xrpQuery = await axios.get('https://bitbay.net/API/Public/XRPPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`XRP: ${xrpQuery.data.bid} PLN`)
-}
-
-
-module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, kzc, xin, xrp }
+module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg }

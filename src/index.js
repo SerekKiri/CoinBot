@@ -13,7 +13,7 @@ client.on('ready', () => {
 
 client.on('message', async (message) => {
   const command = message.content.slice(config.prefix.length)
-  
+
   if (command === 'help') {
     help(message)
   }
@@ -21,7 +21,7 @@ client.on('message', async (message) => {
   if (command === 'btc') {
     crypto.btc(message)
   }
-  
+
   if (command === 'eth') {
     crypto.eth(message)
   }
@@ -33,11 +33,11 @@ client.on('message', async (message) => {
   if (command === 'bcc') {
     crypto.bcc(message)
   }
-  
+
   if (command === 'lsk') {
     crypto.lsk(message)
   }
-  
+
   if (command === 'game') {
     crypto.game(message)
   }
@@ -48,14 +48,6 @@ client.on('message', async (message) => {
 
   if (command === 'btg') {
     crypto.btg(message)
-  }
-
-  if (command === 'kzc') {
-    crypto.kzc(message)
-  }
-
-  if (command === 'xin') {
-    crypto.xin(message)
   }
 
 })
