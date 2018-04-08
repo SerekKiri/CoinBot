@@ -1,1 +1,1 @@
-# coin_bot
+# Coin bot

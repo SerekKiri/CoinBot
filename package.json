@@ -1,0 +1,31 @@
+{
+  "name": "coinbot",
+  "version": "0.7.0",
+  "description": "Crypto bot",
+  "main": "./src/index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "discord.js": "^11.3.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.17.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "eslint --fix --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animek66/coin_bot"
+  },
+  "author": "animek66",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/animek66/coin_bot/issues"
+  },
+  "homepage": "https://github.com/animek66/coin_bot/blob/master/README.md"
+}
