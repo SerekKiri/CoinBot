@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 
 const config = require('./config')
+const crypto = require('./commands/crypto')
 
 const client = new Discord.Client()
 
@@ -10,8 +11,17 @@ client.on('ready', () => {
 })
 
 client.on('message', async (message) => {
-  const args = message.content.substring(config.prefix.length + 1)
+  const command = message.content.slice(config.prefix.length)
   
+  if (command === 'btc') {
+    crypto.btc(message)
+  }
+  
+  if (command === 'eth') {
+    crypto.eth(message)
+  }
+
+
 })
 
 client.login(config.token)
