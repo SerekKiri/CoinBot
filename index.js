@@ -8,7 +8,7 @@ const client = new Discord.Client()
 
 client.on('ready', () => {
   console.log(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`)
-  client.user.setPresence({ game: { name: 'Mining btc', type: 3 } })
+  client.user.setPresence({ game: { name: 'płacenie podatków the movie', type: 3 } })
 })
 
 client.on('message', async (message) => {
