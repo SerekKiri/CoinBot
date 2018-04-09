@@ -7,6 +7,8 @@ const help = (message) => {
         - !btg
         - !dash
         - !game
+        - !xmr
+        - !xrp
     `)
 }
 

@@ -50,6 +50,14 @@ client.on('message', async (message) => {
     crypto.btg(message)
   }
 
+  if (command === 'xmr') {
+    crypto.xmr(message)
+  }
+
+  if (command === 'xrp') {
+    crypto.xrp(message)
+  }
+
 })
 
 client.login(config.token)
