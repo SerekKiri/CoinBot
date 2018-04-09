@@ -1,43 +1,84 @@
 const axios = require('axios')
 
 const btc = async (message) => {
-  const btcQuery = await axios.get('https://bitbay.net/API/Public/BTCPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`BTC: ${btcQuery.data.bid} PLN`)
-}
+  try {
+    const btcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=PLN')
+    await message.reply(`BTC: ${btcQuery.data[0].price_pln} PLN, ${btcQuery.data[0].price_usd} USD`)
+    }
+    catch(err) {
+    console.log(err)
+    }
+  }
 
-const eth = async (message) => {
-  const ethQuery = await axios.get('https://bitbay.net/API/Public/ETHPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`ETH: ${ethQuery.data.bid} PLN`)
-}
+  const eth = async (message) => {
+    try {
+      const ethQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=PLN')
+      await message.reply(`ETH: ${ethQuery.data[0].price_pln} PLN, ${ethQuery.data[0].price_usd} USD`)
+      }
+      catch(err) {
+      console.log(err)
+      }
+    }
 
-const ltc = async (message) => {
-  const ltcQuery = await axios.get('https://bitbay.net/API/Public/LTCPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`LTC: ${ltcQuery.data.bid} PLN`)
-}
+
+    const ltc = async (message) => {
+      try {
+        const ltcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
+        await message.reply(`LTC: ${ltcQuery.data[0].price_pln} PLN, ${ltcQuery.data[0].price_usd} USD`)
+        }
+        catch(err) {
+        console.log(err)
+        }
+      }
 
 const bcc = async (message) => {
-  const bccQuery = await axios.get('https://bitbay.net/API/Public/BCCPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`BCC: ${bccQuery.data.bid} PLN`)
-}
+  try {
+    const bccQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=PLN')
+    await message.reply(`BCC: ${bccQuery.data[0].price_pln} PLN, ${bccQuery.data[0].price_usd} USD`)
+    }
+    catch(err) {
+    console.log(err)
+    }
+  }
 
 const lsk = async (message) => {
-  const lskQuery = await axios.get('https://bitbay.net/API/Public/LSKPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`LSK: ${lskQuery.data.bid} PLN`)
-}
+  try {
+    const lskQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/lisk/?convert=PLN')
+    await message.reply(`LSK: ${lskQuery.data[0].price_pln} PLN, ${lskQuery.data[0].price_usd} USD`)
+    }
+    catch(err) {
+    console.log(err)
+    }
+  }
 
 const game = async (message) => {
-  const gameQuery = await axios.get('https://bitbay.net/API/Public/GAMEPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`GAME: ${gameQuery.data.bid} PLN`)
-}
+  try {
+    const gameQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/game/?convert=PLN')
+    await message.reply(`game: ${gameQuery.data[0].price_pln} PLN, ${gameQuery.data[0].price_usd} USD`)
+    }
+    catch(err) {
+    console.log(err)
+    }
+  }
 
 const dash = async (message) => {
-  const dashQuery = await axios.get('https://bitbay.net/API/Public/DASHPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`DASH: ${dashQuery.data.bid} PLN`)
-}
+  try {
+    const dashQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=PLN')
+    await message.reply(`DASH: ${dashQuery.data[0].price_pln} PLN, ${dashQuery.data[0].price_usd} USD`)
+    }
+    catch(err) {
+    console.log(err)
+    }
+  }
 
 const btg = async (message) => {
-  const btgQuery = await axios.get('https://bitbay.net/API/Public/BTGPLN/ticker.json').catch(err => message.reply(err))
-  await message.reply(`BTG: ${btgQuery.data.bid} PLN`)
-}
+  try {
+    const btgQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
+    await message.reply(`BTG: ${btgQuery.data[0].price_pln} PLN, ${btgQuery.data[0].price_usd} USD`)
+    }
+    catch(err) {
+    console.log(err)
+    }
+  }
 
 module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg }
