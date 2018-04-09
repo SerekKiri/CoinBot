@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
 
-const config = require('./config')
-const crypto = require('./commands/crypto')
-const help = require('./commands/help')
+const config = require('./src/config')
+const crypto = require('./src/commands/crypto')
+const help = require('./src/commands/help')
 
 const client = new Discord.Client()
 
