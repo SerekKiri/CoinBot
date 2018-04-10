@@ -1,9 +1,24 @@
+const Discord = require('discord.js')
 const axios = require('axios')
+
+var currentdate = new Date();
+var datetime = "Price at " + currentdate.getHours() + ":"
+  + currentdate.getMinutes() + ":"
+  + currentdate.getSeconds() + " "
+  + currentdate.getDate() + "/"
+  + (currentdate.getMonth() + 1) + "/"
+  + currentdate.getFullYear();
 
 const btc = async (message) => {
   try {
     const btcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=PLN')
-    await message.reply(`BTC: ${btcQuery.data[0].price_pln} PLN, ${btcQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[BTC] BitCoin price:')
+      .setColor(0x009688)
+      .setDescription(` - ${btcQuery.data[0].price_usd} USD
+- ${btcQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -13,7 +28,13 @@ const btc = async (message) => {
 const eth = async (message) => {
   try {
     const ethQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=PLN')
-    await message.reply(`ETH: ${ethQuery.data[0].price_pln} PLN, ${ethQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[ETH] Ethereum price:')
+      .setColor(0x009688)
+      .setDescription(` - ${ethQuery.data[0].price_usd} USD
+- ${ethQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -24,7 +45,13 @@ const eth = async (message) => {
 const ltc = async (message) => {
   try {
     const ltcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
-    await message.reply(`LTC: ${ltcQuery.data[0].price_pln} PLN, ${ltcQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[LTC] LiteCoin price:')
+      .setColor(0x009688)
+      .setDescription(` - ${ltcQuery.data[0].price_usd} USD
+- ${ltcQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -34,17 +61,29 @@ const ltc = async (message) => {
 const bcc = async (message) => {
   try {
     const bccQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=PLN')
-    await message.reply(`BCC: ${bccQuery.data[0].price_pln} PLN, ${bccQuery.data[0].price_usd} USD`)
-  }
-  catch (err) {
-    console.log(err)
-  }
+    const embed = new Discord.RichEmbed()
+    .setTitle('[BCC] BitConnect price:')
+    .setColor(0x009688)
+    .setDescription(` - ${bccQuery.data[0].price_usd} USD
+- ${bccQuery.data[0].price_pln} PLN`)
+    .setFooter(datetime)
+  await message.channel.send({ embed })
+}
+catch (err) {
+  console.log(err)
+}
 }
 
 const lsk = async (message) => {
   try {
     const lskQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/lisk/?convert=PLN')
-    await message.reply(`LSK: ${lskQuery.data[0].price_pln} PLN, ${lskQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[LSK] Lisk price:')
+      .setColor(0x009688)
+      .setDescription(` - ${lskQuery.data[0].price_usd} USD
+- ${lskQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -54,7 +93,13 @@ const lsk = async (message) => {
 const game = async (message) => {
   try {
     const gameQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/game/?convert=PLN')
-    await message.reply(`game: ${gameQuery.data[0].price_pln} PLN, ${gameQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[GAME] GAME price:')
+      .setColor(0x009688)
+      .setDescription(` - ${gameQuery.data[0].price_usd} USD
+- ${gameQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -64,7 +109,13 @@ const game = async (message) => {
 const dash = async (message) => {
   try {
     const dashQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=PLN')
-    await message.reply(`DASH: ${dashQuery.data[0].price_pln} PLN, ${dashQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[DASH] DASH price:')
+      .setColor(0x009688)
+      .setDescription(` - ${dashQuery.data[0].price_usd} USD
+- ${dashQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -74,7 +125,13 @@ const dash = async (message) => {
 const btg = async (message) => {
   try {
     const btgQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
-    await message.reply(`BTG: ${btgQuery.data[0].price_pln} PLN, ${btgQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[BTG] Bitcoin Gold price:')
+      .setColor(0x009688)
+      .setDescription(` - ${btgQuery.data[0].price_usd} USD
+- ${btgQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -84,7 +141,13 @@ const btg = async (message) => {
 const xmr = async (message) => {
   try {
     const xmrQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/monero/?convert=PLN')
-    await message.reply(`XMR: ${xmrQuery.data[0].price_pln} PLN, ${xmrQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[XMR] Monero price:')
+      .setColor(0x009688)
+      .setDescription(` - ${xmrQuery.data[0].price_usd} USD
+- ${xmrQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -94,7 +157,13 @@ const xmr = async (message) => {
 const xrp = async (message) => {
   try {
     const xrpQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/ripple/?convert=PLN')
-    await message.reply(`XRP: ${xrpQuery.data[0].price_pln} PLN, ${xrpQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[XRP] Ripple price:')
+      .setColor(0x009688)
+      .setDescription(` - ${xrpQuery.data[0].price_usd} USD
+- ${xrpQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
@@ -104,11 +173,18 @@ const xrp = async (message) => {
 const mag = async (message) => {
   try {
     const magQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/magnet/?convert=PLN')
-    await message.reply(`MAG: ${magQuery.data[0].price_pln} PLN, ${magQuery.data[0].price_usd} USD`)
+    const embed = new Discord.RichEmbed()
+      .setTitle('[MAG] Magnet price:')
+      .setColor(0x009688)
+      .setDescription(` - ${magQuery.data[0].price_usd} USD
+- ${magQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
   }
   catch (err) {
     console.log(err)
   }
 }
+
 
 module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag }
