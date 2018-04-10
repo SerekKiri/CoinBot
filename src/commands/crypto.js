@@ -186,5 +186,52 @@ const mag = async (message) => {
   }
 }
 
+const doge = async (message) => {
+  try {
+    const dogeQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/dogecoin/?convert=PLN')
+    const embed = new Discord.RichEmbed()
+      .setTitle('[DOGE] DogeCoin price:')
+      .setColor(0x009688)
+      .setDescription(` - ${dogeQuery.data[0].price_usd} USD
+- ${dogeQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
 
-module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag }
+const etn = async (message) => {
+  try {
+    const etnQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/electroneum/?convert=PLN')
+    const embed = new Discord.RichEmbed()
+      .setTitle('[ETN] Electroneum price:')
+      .setColor(0x009688)
+      .setDescription(` - ${etnQuery.data[0].price_usd} USD
+- ${etnQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+const bch = async (message) => {
+  try {
+    const bchQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=PLN')
+    const embed = new Discord.RichEmbed()
+      .setTitle('[BCH] BitCoin Cash price:')
+      .setColor(0x009688)
+      .setDescription(` - ${bchQuery.data[0].price_usd} USD
+- ${bchQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch }

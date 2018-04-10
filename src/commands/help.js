@@ -1,18 +1,27 @@
+const Discord = require('discord.js')
+
 const help = (message) => {
-  message.reply(`
-    Dostępne komendy:
-        - !btc
-        - !eth
-        - !ltc
-        - !btg
-        - !dash
-        - !game
-        - !xmr
-        - !xrp
-        - !bcc
-        - !lsk
-        - !mag
-    `)
+    const embed = new Discord.RichEmbed()
+      .setTitle('Help:')
+      .setColor(0xF44336)
+      .setDescription(`
+      Dostępne komendy:
+          - !btc     (BitCoin)
+          - !eth     (Ethereum)
+          - !ltc      (LiteCoin)
+          - !btg     (BitCoin Gold)
+          - !dash  (DASH)
+          - !game (GAME)
+          - !xmr    (Monero)
+          - !xrp     (Ripple)
+          - !bcc     (BitConnect)
+          - !lsk      (Lisk)
+          - !mag   (Magnet)
+          - !doge  (DogeCoin)
+          - !bch    (BitCoin cash)
+          - !etn     (Electroneum)
+      `)
+     message.channel.send({ embed })
 }
 
 module.exports = help

@@ -62,6 +62,18 @@ client.on('message', async (message) => {
     crypto.mag(message)
   }
 
+  if (command === 'doge') {
+    crypto.doge(message)
+  }
+
+  if (command === 'etn') {
+    crypto.etn(message)
+  }
+
+  if (command === 'bch') {
+    crypto.bch(message)
+  }
+
 })
 
 client.login(process.env.BOT_TOKEN)
