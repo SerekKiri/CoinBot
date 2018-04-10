@@ -9,6 +9,9 @@ const help = (message) => {
         - !game
         - !xmr
         - !xrp
+        - !bcc
+        - !lsk
+        - !mag
     `)
 }
 

@@ -58,6 +58,10 @@ client.on('message', async (message) => {
     crypto.xrp(message)
   }
 
+  if (command === 'mag') {
+    crypto.mag(message)
+  }
+
 })
 
 client.login(process.env.BOT_TOKEN)

@@ -101,4 +101,14 @@ const xrp = async (message) => {
   }
 }
 
-module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp }
+const mag = async (message) => {
+  try {
+    const magQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/magnet/?convert=PLN')
+    await message.reply(`MAG: ${magQuery.data[0].price_pln} PLN, ${magQuery.data[0].price_usd} USD`)
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag }
