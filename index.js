@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 const config = require('./src/config')
 const crypto = require('./src/commands/crypto')
-const help = require('./src/commands/help')
+const coins = require('./src/commands/coins')
 
 const client = new Discord.Client()
 
@@ -14,8 +14,8 @@ client.on('ready', () => {
 client.on('message', async (message) => {
   const command = message.content.slice(config.prefix.length)
 
-  if (command === 'help') {
-    help(message)
+  if (command === 'coins') {
+    coins(message)
   }
 
   if (command === 'btc') {
