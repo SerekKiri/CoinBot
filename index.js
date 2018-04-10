@@ -74,6 +74,10 @@ client.on('message', async (message) => {
     crypto.bch(message)
   }
 
+  if (command === 'eos') {
+    crypto.eos(message)
+  }
+
 })
 
 client.login(process.env.BOT_TOKEN)

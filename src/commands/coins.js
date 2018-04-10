@@ -19,6 +19,7 @@ const coin = (message) => {
 - !doge  (DogeCoin)
 - !bch    (BitCoin cash)
 - !etn     (Electroneum)
+- !eos     (EOS)
       `)
     message.channel.send({ embed })
 }

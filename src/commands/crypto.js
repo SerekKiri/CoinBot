@@ -234,4 +234,20 @@ const bch = async (message) => {
   }
 }
 
-module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch }
+const eos = async (message) => {
+  try {
+    const eosQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/eos/?convert=PLN')
+    const embed = new Discord.RichEmbed()
+      .setTitle('[EOS] EOS price:')
+      .setColor(0x009688)
+      .setDescription(` - ${eosQuery.data[0].price_usd} USD
+- ${eosQuery.data[0].price_pln} PLN`)
+      .setFooter(datetime)
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch, eos }
