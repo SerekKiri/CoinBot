@@ -1,14 +1,6 @@
 const Discord = require('discord.js')
 const axios = require('axios')
 
-var currentdate = new Date();
-var datetime = "Price at " + currentdate.getHours() + ":"
-  + currentdate.getMinutes() + ":"
-  + currentdate.getSeconds() + " "
-  + currentdate.getDate() + "/"
-  + (currentdate.getMonth() + 1) + "/"
-  + currentdate.getFullYear();
-
 const btc = async (message) => {
   try {
     const btcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=PLN')
@@ -17,7 +9,6 @@ const btc = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${btcQuery.data[0].price_usd} USD
 - ${btcQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -33,7 +24,6 @@ const eth = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${ethQuery.data[0].price_usd} USD
 - ${ethQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -50,7 +40,6 @@ const ltc = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${ltcQuery.data[0].price_usd} USD
 - ${ltcQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -66,7 +55,6 @@ const bcc = async (message) => {
     .setColor(0x009688)
     .setDescription(` - ${bccQuery.data[0].price_usd} USD
 - ${bccQuery.data[0].price_pln} PLN`)
-    .setFooter(datetime)
   await message.channel.send({ embed })
 }
 catch (err) {
@@ -82,7 +70,6 @@ const lsk = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${lskQuery.data[0].price_usd} USD
 - ${lskQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -98,7 +85,6 @@ const game = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${gameQuery.data[0].price_usd} USD
 - ${gameQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -114,7 +100,6 @@ const dash = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${dashQuery.data[0].price_usd} USD
 - ${dashQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -130,7 +115,6 @@ const btg = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${btgQuery.data[0].price_usd} USD
 - ${btgQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -146,7 +130,6 @@ const xmr = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${xmrQuery.data[0].price_usd} USD
 - ${xmrQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -162,7 +145,6 @@ const xrp = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${xrpQuery.data[0].price_usd} USD
 - ${xrpQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -178,7 +160,6 @@ const mag = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${magQuery.data[0].price_usd} USD
 - ${magQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -194,7 +175,6 @@ const doge = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${dogeQuery.data[0].price_usd} USD
 - ${dogeQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -210,7 +190,6 @@ const etn = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${etnQuery.data[0].price_usd} USD
 - ${etnQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -226,7 +205,6 @@ const bch = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${bchQuery.data[0].price_usd} USD
 - ${bchQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -242,7 +220,6 @@ const eos = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${eosQuery.data[0].price_usd} USD
 - ${eosQuery.data[0].price_pln} PLN`)
-      .setFooter(datetime)
     await message.channel.send({ embed })
   }
   catch (err) {
