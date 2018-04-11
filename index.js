@@ -78,6 +78,10 @@ client.on('message', async (message) => {
     crypto.eos(message)
   }
 
+  if (command === 'iota') {
+    crypto.iota(message)
+  }
+
 })
 
 client.login(process.env.BOT_TOKEN)

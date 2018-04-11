@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const coin = (message) => {
     const embed = new Discord.RichEmbed()
         .setTitle('Available coins price:')
-        .setColor(0xF44336)
+        .setColor(0xC6FF00)
         .setDescription(`
 - !btc     (BitCoin)
 - !eth     (Ethereum)
@@ -20,6 +20,7 @@ const coin = (message) => {
 - !bch    (BitCoin cash)
 - !etn     (Electroneum)
 - !eos     (EOS)
+- !iota    (IOTA)
       `)
     message.channel.send({ embed })
 }
