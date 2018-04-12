@@ -1,6 +1,26 @@
 const Discord = require('discord.js')
 const axios = require('axios')
 
+function time() {
+  // Multiply by 1000 because JS works in milliseconds instead of the UNIX seconds
+  const date = new Date();
+
+  var year = date.getUTCFullYear();
+  var month = date.getUTCMonth() + 1; // getMonth() is zero-indexed, so we'll increment to get the correct month number
+  var day = date.getUTCDate();
+  var hours = date.getUTCHours();
+  var minutes = date.getUTCMinutes();
+  var seconds = date.getUTCSeconds();
+
+  month = (month < 10) ? '0' + month : month;
+  day = (day < 10) ? '0' + day : day;
+  hours = (hours < 10) ? '0' + hours : hours;
+  minutes = (minutes < 10) ? '0' + minutes : minutes;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+  return ' ' + hours + ':' + minutes + ':' + seconds + ' ' + day + '-' + month + '-' + year;
+}
+
 const btc = async (message) => {
   try {
     const btcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=PLN')
@@ -16,6 +36,7 @@ const btc = async (message) => {
       .setColor(colors())
       .setDescription(` - ${btcQuery.data[0].price_usd} USD
 - ${btcQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -38,6 +59,7 @@ const eth = async (message) => {
       .setColor(colors())
       .setDescription(` - ${ethQuery.data[0].price_usd} USD
 - ${ethQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -61,6 +83,7 @@ const ltc = async (message) => {
       .setColor(0x009688)
       .setDescription(` - ${ltcQuery.data[0].price_usd} USD
 - ${ltcQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -79,15 +102,16 @@ const bcc = async (message) => {
       }
     }
     const embed = new Discord.RichEmbed()
-    .setTitle('[BCC] BitConnect price:')
-    .setColor(colors())
-    .setDescription(` - ${bccQuery.data[0].price_usd} USD
+      .setTitle('[BCC] BitConnect price:')
+      .setColor(colors())
+      .setDescription(` - ${bccQuery.data[0].price_usd} USD
 - ${bccQuery.data[0].price_pln} PLN`)
-  await message.channel.send({ embed })
-}
-catch (err) {
-  console.log(err)
-}
+      .setFooter('Price at:' + time())
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
 }
 
 const lsk = async (message) => {
@@ -105,6 +129,7 @@ const lsk = async (message) => {
       .setColor(colors())
       .setDescription(` - ${lskQuery.data[0].price_usd} USD
 - ${lskQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -127,6 +152,7 @@ const game = async (message) => {
       .setColor(colors())
       .setDescription(` - ${gameQuery.data[0].price_usd} USD
 - ${gameQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -149,6 +175,7 @@ const dash = async (message) => {
       .setColor(colors())
       .setDescription(` - ${dashQuery.data[0].price_usd} USD
 - ${dashQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -171,6 +198,7 @@ const btg = async (message) => {
       .setColor(colors())
       .setDescription(` - ${btgQuery.data[0].price_usd} USD
 - ${btgQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -193,6 +221,7 @@ const xmr = async (message) => {
       .setColor(colors())
       .setDescription(` - ${xmrQuery.data[0].price_usd} USD
 - ${xmrQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -215,6 +244,7 @@ const xrp = async (message) => {
       .setColor(colors())
       .setDescription(` - ${xrpQuery.data[0].price_usd} USD
 - ${xrpQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -237,6 +267,7 @@ const mag = async (message) => {
       .setColor(colors())
       .setDescription(` - ${magQuery.data[0].price_usd} USD
 - ${magQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -259,6 +290,7 @@ const doge = async (message) => {
       .setColor(colors())
       .setDescription(` - ${dogeQuery.data[0].price_usd} USD
 - ${dogeQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -281,6 +313,7 @@ const etn = async (message) => {
       .setColor(colors())
       .setDescription(` - ${etnQuery.data[0].price_usd} USD
 - ${etnQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -303,6 +336,7 @@ const bch = async (message) => {
       .setColor(colors())
       .setDescription(` - ${bchQuery.data[0].price_usd} USD
 - ${bchQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -325,6 +359,7 @@ const eos = async (message) => {
       .setColor(colors())
       .setDescription(` - ${eosQuery.data[0].price_usd} USD
 - ${eosQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
@@ -347,6 +382,7 @@ const iota = async (message) => {
       .setColor(colors())
       .setDescription(` - ${iotaQuery.data[0].price_usd} USD
 - ${iotaQuery.data[0].price_pln} PLN`)
+      .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
   catch (err) {
