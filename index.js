@@ -89,4 +89,4 @@ client.on('message', async (message) => {
   }
 })
 
-client.login(config.token)
+client.login(process.env.BOT_TOKEN) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
