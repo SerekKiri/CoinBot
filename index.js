@@ -11,16 +11,18 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: 'Paying taxes the movie', type: 3 } })
 })
 
+
 client.on('message', async (message) => {
   const command = message.content.slice(config.prefix.length)
 
-  if (command === 'coins') {
-    coins(message)
-  }
+  if (command === 'coins') { 
+    coins(message) 
+  } 
 
   if (command === 'btc') {
     crypto.btc(message)
   }
+
 
   if (command === 'eth') {
     crypto.eth(message)
@@ -82,6 +84,9 @@ client.on('message', async (message) => {
     crypto.iota(message)
   }
 
+  if (command === 'zcash') {
+    crypto.zcash(message)
+  }
 })
 
-client.login(process.env.BOT_TOKEN)
+client.login(config.token)

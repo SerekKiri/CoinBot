@@ -13,7 +13,6 @@ const coin = (message) => {
 - !game (GAME)
 - !xmr    (Monero)
 - !xrp     (Ripple)
-- !bcc     (BitConnect)
 - !lsk      (Lisk)
 - !mag   (Magnet)
 - !doge  (DogeCoin)
@@ -21,6 +20,7 @@ const coin = (message) => {
 - !etn     (Electroneum)
 - !eos     (EOS)
 - !iota    (IOTA)
+- !zcash (ZEC)
       `)
     message.channel.send({ embed })
 }

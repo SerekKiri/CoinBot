@@ -21,9 +21,21 @@ function time() {
   return ' ' + hours + ':' + minutes + ':' + seconds + ' ' + day + '-' + month + '-' + year;
 }
 
+
+
+
 const btc = async (message) => {
   try {
     const btcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=PLN')
+    function change() {
+      if (btcQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  btcQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + btcQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${btcQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -35,7 +47,9 @@ const btc = async (message) => {
       .setTitle('[BTC] BitCoin price:')
       .setColor(colors())
       .setDescription(` - ${btcQuery.data[0].price_usd} USD
-- ${btcQuery.data[0].price_pln} PLN`)
+- ${btcQuery.data[0].price_pln} PLN 
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -47,6 +61,15 @@ const btc = async (message) => {
 const eth = async (message) => {
   try {
     const ethQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=PLN')
+    function change() {
+      if (ethQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  ethQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + ethQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${ethQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -58,7 +81,9 @@ const eth = async (message) => {
       .setTitle('[ETH] Ethereum price:')
       .setColor(colors())
       .setDescription(` - ${ethQuery.data[0].price_usd} USD
-- ${ethQuery.data[0].price_pln} PLN`)
+- ${ethQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -71,6 +96,15 @@ const eth = async (message) => {
 const ltc = async (message) => {
   try {
     const ltcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
+    function change() {
+      if (ltcQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  ltcQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + ltcQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${ltcQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -82,30 +116,9 @@ const ltc = async (message) => {
       .setTitle('[LTC] LiteCoin price:')
       .setColor(0x009688)
       .setDescription(` - ${ltcQuery.data[0].price_usd} USD
-- ${ltcQuery.data[0].price_pln} PLN`)
-      .setFooter('Price at:' + time())
-    await message.channel.send({ embed })
-  }
-  catch (err) {
-    console.log(err)
-  }
-}
-
-const bcc = async (message) => {
-  try {
-    const bccQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitconnect/?convert=PLN')
-    function colors() {
-      if (`${bccQuery.data[0].percent_change_1h}` < 0) {
-        return 0xF44336
-      } else {
-        return 0x00E676
-      }
-    }
-    const embed = new Discord.RichEmbed()
-      .setTitle('[BCC] BitConnect price:')
-      .setColor(colors())
-      .setDescription(` - ${bccQuery.data[0].price_usd} USD
-- ${bccQuery.data[0].price_pln} PLN`)
+- ${ltcQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -117,6 +130,15 @@ const bcc = async (message) => {
 const lsk = async (message) => {
   try {
     const lskQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/lisk/?convert=PLN')
+    function change() {
+      if (lskQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  lskQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + lskQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${lskQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -128,7 +150,9 @@ const lsk = async (message) => {
       .setTitle('[LSK] Lisk price:')
       .setColor(colors())
       .setDescription(` - ${lskQuery.data[0].price_usd} USD
-- ${lskQuery.data[0].price_pln} PLN`)
+- ${lskQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -140,6 +164,15 @@ const lsk = async (message) => {
 const game = async (message) => {
   try {
     const gameQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/game/?convert=PLN')
+    function change() {
+      if (gameQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  gameQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + gameQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${gameQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -151,7 +184,9 @@ const game = async (message) => {
       .setTitle('[GAME] GAME price:')
       .setColor(colors())
       .setDescription(` - ${gameQuery.data[0].price_usd} USD
-- ${gameQuery.data[0].price_pln} PLN`)
+- ${gameQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -163,6 +198,15 @@ const game = async (message) => {
 const dash = async (message) => {
   try {
     const dashQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/dash/?convert=PLN')
+    function change() {
+      if (dashQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  dashQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + dashQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${dashQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -174,7 +218,9 @@ const dash = async (message) => {
       .setTitle('[DASH] DASH price:')
       .setColor(colors())
       .setDescription(` - ${dashQuery.data[0].price_usd} USD
-- ${dashQuery.data[0].price_pln} PLN`)
+- ${dashQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -186,6 +232,15 @@ const dash = async (message) => {
 const btg = async (message) => {
   try {
     const btgQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
+    function change() {
+      if (btgQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  btgQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + btgQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${btgQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -197,7 +252,8 @@ const btg = async (message) => {
       .setTitle('[BTG] Bitcoin Gold price:')
       .setColor(colors())
       .setDescription(` - ${btgQuery.data[0].price_usd} USD
-- ${btgQuery.data[0].price_pln} PLN`)
+- ${btgQuery.data[0].price_pln} PLN
+- ${change()} %`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -209,6 +265,15 @@ const btg = async (message) => {
 const xmr = async (message) => {
   try {
     const xmrQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/monero/?convert=PLN')
+    function change() {
+      if (xmrQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  xmrQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + xmrQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${xmrQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -220,7 +285,8 @@ const xmr = async (message) => {
       .setTitle('[XMR] Monero price:')
       .setColor(colors())
       .setDescription(` - ${xmrQuery.data[0].price_usd} USD
-- ${xmrQuery.data[0].price_pln} PLN`)
+- ${xmrQuery.data[0].price_pln} PLN
+- ${change()} %`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -232,8 +298,17 @@ const xmr = async (message) => {
 const xrp = async (message) => {
   try {
     const xrpQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/ripple/?convert=PLN')
+    function change() {
+      if (xrpQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  xrpQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + xrpQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
-      if (`${xmrQuery.data[0].percent_change_1h}` < 0) {
+      if (`${xrpQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
       } else {
         return 0x00E676
@@ -243,7 +318,8 @@ const xrp = async (message) => {
       .setTitle('[XRP] Ripple price:')
       .setColor(colors())
       .setDescription(` - ${xrpQuery.data[0].price_usd} USD
-- ${xrpQuery.data[0].price_pln} PLN`)
+- ${xrpQuery.data[0].price_pln} PLN
+- ${change()} %`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -255,6 +331,15 @@ const xrp = async (message) => {
 const mag = async (message) => {
   try {
     const magQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/magnet/?convert=PLN')
+    function change() {
+      if (magQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  magQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + magQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${magQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -266,7 +351,8 @@ const mag = async (message) => {
       .setTitle('[MAG] Magnet price:')
       .setColor(colors())
       .setDescription(` - ${magQuery.data[0].price_usd} USD
-- ${magQuery.data[0].price_pln} PLN`)
+- ${magQuery.data[0].price_pln} PLN
+- ${change()} %`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -278,6 +364,15 @@ const mag = async (message) => {
 const doge = async (message) => {
   try {
     const dogeQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/dogecoin/?convert=PLN')
+    function change() {
+      if (dogeQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  dogeQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + dogeQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${dogeQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -289,7 +384,9 @@ const doge = async (message) => {
       .setTitle('[DOGE] DogeCoin price:')
       .setColor(colors())
       .setDescription(` - ${dogeQuery.data[0].price_usd} USD
-- ${dogeQuery.data[0].price_pln} PLN`)
+- ${dogeQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -301,6 +398,15 @@ const doge = async (message) => {
 const etn = async (message) => {
   try {
     const etnQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/electroneum/?convert=PLN')
+    function change() {
+      if (etnQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  etnQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + etnQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${etnQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -312,7 +418,9 @@ const etn = async (message) => {
       .setTitle('[ETN] Electroneum price:')
       .setColor(colors())
       .setDescription(` - ${etnQuery.data[0].price_usd} USD
-- ${etnQuery.data[0].price_pln} PLN`)
+- ${etnQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -324,6 +432,15 @@ const etn = async (message) => {
 const bch = async (message) => {
   try {
     const bchQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin-cash/?convert=PLN')
+    function change() {
+      if (bchQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  bchQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + bchQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${bchQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -335,7 +452,9 @@ const bch = async (message) => {
       .setTitle('[BCH] BitCoin Cash price:')
       .setColor(colors())
       .setDescription(` - ${bchQuery.data[0].price_usd} USD
-- ${bchQuery.data[0].price_pln} PLN`)
+- ${bchQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -347,6 +466,15 @@ const bch = async (message) => {
 const eos = async (message) => {
   try {
     const eosQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/eos/?convert=PLN')
+    function change() {
+      if (eosQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  eosQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + eosQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${eosQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -358,7 +486,9 @@ const eos = async (message) => {
       .setTitle('[EOS] EOS price:')
       .setColor(colors())
       .setDescription(` - ${eosQuery.data[0].price_usd} USD
-- ${eosQuery.data[0].price_pln} PLN`)
+- ${eosQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -370,6 +500,15 @@ const eos = async (message) => {
 const iota = async (message) => {
   try {
     const iotaQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/iota/?convert=PLN')
+    function change() {
+      if (iotaQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  iotaQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + iotaQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
     function colors() {
       if (`${iotaQuery.data[0].percent_change_1h}` < 0) {
         return 0xF44336
@@ -381,7 +520,9 @@ const iota = async (message) => {
       .setTitle('[MIOTA] IOTA price:')
       .setColor(colors())
       .setDescription(` - ${iotaQuery.data[0].price_usd} USD
-- ${iotaQuery.data[0].price_pln} PLN`)
+- ${iotaQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
   }
@@ -390,4 +531,38 @@ const iota = async (message) => {
   }
 }
 
-module.exports = { btc, eth, ltc, bcc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch, eos, iota }
+const zcash = async (message) => {
+  try {
+    const zcashQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/iota/?convert=PLN')
+    function change() {
+      if (zcashQuery.data[0].percent_change_1h > 0) {
+        const text = `:chart_with_upwards_trend: ` +  zcashQuery.data[0].percent_change_1h;
+        return text
+      } else {
+        const text = `:chart_with_downwards_trend: ` + zcashQuery.data[0].percent_change_1h;
+        return text
+      }
+    }
+    function colors() {
+      if (`${zcashQuery.data[0].percent_change_1h}` < 0) {
+        return 0xF44336
+      } else {
+        return 0x00E676
+      }
+    }
+    const embed = new Discord.RichEmbed()
+      .setTitle('[ZEC] Zcash price:')
+      .setColor(colors())
+      .setDescription(` - ${zcashQuery.data[0].price_usd} USD
+- ${zcashQuery.data[0].price_pln} PLN
+- ${change()} %
+`)
+      .setFooter('Price at:' + time())
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+module.exports = { btc, eth, ltc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch, eos, iota, zcash }
