@@ -533,7 +533,7 @@ const iota = async (message) => {
 
 const zcash = async (message) => {
   try {
-    const zcashQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/iota/?convert=PLN')
+    const zcashQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/zcash/?convert=PLN')
     function change() {
       if (zcashQuery.data[0].percent_change_1h > 0) {
         const text = `:chart_with_upwards_trend: ` +  zcashQuery.data[0].percent_change_1h;
