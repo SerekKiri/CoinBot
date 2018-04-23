@@ -24,6 +24,10 @@ client.on('message', async (message) => {
     help(message)
   }
 
+  if (command === 'donate') {
+    await message.reply("Here you have a link: paypal.me/kiritito thanks for all donates! :yum:")
+  }
+
   if (command === 'btc') {
     crypto.btc(message)
   }
@@ -94,4 +98,4 @@ client.on('message', async (message) => {
   }
 });
 
-client.login(config.token) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
+client.login(process.env.BOT_TOKEN) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
