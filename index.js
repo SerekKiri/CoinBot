@@ -3,13 +3,14 @@ const Discord = require('discord.js')
 const config = require('./src/config')
 const crypto = require('./src/commands/crypto')
 const coins = require('./src/commands/coins')
+const help = require('./src/commands/help')
 
 const client = new Discord.Client()
 
 client.on('ready', () => {
   console.log(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`)
   client.user.setPresence({ game: { name: 'Paying taxes the movie', type: 3 } })
-})
+});
 
 
 client.on('message', async (message) => {
@@ -18,6 +19,10 @@ client.on('message', async (message) => {
   if (command === 'coins') { 
     coins(message) 
   } 
+
+  if (command === 'help') {
+    help(message)
+  }
 
   if (command === 'btc') {
     crypto.btc(message)
@@ -87,6 +92,6 @@ client.on('message', async (message) => {
   if (command === 'zcash') {
     crypto.zcash(message)
   }
-})
+});
 
-client.login(process.env.BOT_TOKEN) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
+client.login(config.token) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
