@@ -25,7 +25,10 @@ client.on('message', async (message) => {
   }
 
   if (command === 'donate') {
-    await message.reply("Here you have a link: paypal.me/kiritito thanks for all donates! :yum:")
+    await message.reply(`Thanks for all donates! :yum:
+Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
+Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
+    `)
   }
 
   if (command === 'btc') {

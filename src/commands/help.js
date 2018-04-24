@@ -7,7 +7,7 @@ const help = (message) => {
         .setDescription(`
         - !help
 - !coins
-- !donate
+- !donate (We are collecting for hosting)
         `)
         message.channel.send({ embed })
 }
