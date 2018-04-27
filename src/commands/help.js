@@ -8,6 +8,11 @@ const help = (message) => {
         - !help
 - !coins
 - !donate (We are collecting for hosting)
+
+Legend:
+        :clock1: - 1 hour
+        :calendar: - 24 hours
+        :calendar_spiral: - 7 days
         `)
         message.channel.send({ embed })
 }
