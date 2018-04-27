@@ -22,7 +22,7 @@ const coin = (message) => {
 - !iota    (IOTA)
 - !zcash (ZEC)
       `)
-    message.channel.send({ embed })
+    message.channel.send({ embed }) 
 }
 
 module.exports = coin
