@@ -473,4 +473,61 @@ const zcash = async (message) => {
   }
 }
 
-module.exports = { btc, eth, ltc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch, eos, iota, zcash }
+
+const steem = async (message) => {
+  try {
+    const steemQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/steem/?convert=PLN')
+    function colors() {
+      if (`${steemQuery.data[0].percent_change_1h}` < 0) {
+        return 0xF44336
+      } else {
+        return 0x00E676
+      }
+    }
+    const embed = new Discord.RichEmbed()
+      .setTitle('[STEEM] Steem price:')
+      .setColor(colors())
+      .setDescription(` - ${steemQuery.data[0].price_usd} USD
+- ${steemQuery.data[0].price_pln} PLN
+- Percent Change in:
+    :clock1: :arrow_right:  ${steemQuery.data[0].percent_change_1h}% (1 hour)
+    :calendar: :arrow_right:  ${steemQuery.data[0].percent_change_24h}% (24 hours)
+    :calendar_spiral: :arrow_right:  ${steemQuery.data[0].percent_change_7d}% (7 days)
+`)
+      .setFooter('Price at:' + time())
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+const steemd = async (message) => {
+  try {
+    const steemdQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/steem-dollars/?convert=PLN')
+    function colors() {
+      if (`${steemdQuery.data[0].percent_change_1h}` < 0) {
+        return 0xF44336
+      } else {
+        return 0x00E676
+      }
+    }
+    const embed = new Discord.RichEmbed()
+      .setTitle('[SBD] Steem Dollars price:')
+      .setColor(colors())
+      .setDescription(` - ${steemdQuery.data[0].price_usd} USD
+- ${steemdQuery.data[0].price_pln} PLN
+- Percent Change in:
+    :clock1: :arrow_right:  ${steemdQuery.data[0].percent_change_1h}% (1 hour)
+    :calendar: :arrow_right:  ${steemdQuery.data[0].percent_change_24h}% (24 hours)
+    :calendar_spiral: :arrow_right:  ${steemdQuery.data[0].percent_change_7d}% (7 days)
+`)
+      .setFooter('Price at:' + time())
+    await message.channel.send({ embed })
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+module.exports = { btc, eth, ltc, lsk, game, dash, btg, xmr, xrp, mag, doge, etn, bch, eos, iota, zcash, steem, steemd }

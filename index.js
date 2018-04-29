@@ -99,6 +99,14 @@ Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
   if (command === 'zcash') {
     crypto.zcash(message)
   }
+
+  if (command === 'steem') {
+    crypto.steem(message)
+  }
+
+  if (command === 'sbd') {
+    crypto.steemd(message)
+  }
 });
 
 client.login(process.env.BOT_TOKEN) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
