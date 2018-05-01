@@ -1,112 +1,113 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const debug = require('debug')('index');
 
-const config = require('./src/config')
-const crypto = require('./src/commands/crypto')
-const coins = require('./src/commands/coins')
-const help = require('./src/commands/help')
+const config = require('./src/config');
+const crypto = require('./src/commands/crypto');
+const coins = require('./src/commands/coins');
+const help = require('./src/commands/help');
 
-const client = new Discord.Client()
+const client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`)
-  client.user.setPresence({ game: { name: 'Paying taxes the movie', type: 3 } })
+  debug(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+  client.user.setPresence({ game: { name: 'Paying taxes the movie', type: 3 } });
 });
 
 
 client.on('message', async (message) => {
-  const command = message.content.slice(config.prefix.length)
+  const command = message.content.slice(config.prefix.length);
 
-  if (command === 'coins') { 
-    coins(message) 
-  } 
+  if (command === 'coins') {
+    coins(message);
+  }
 
   if (command === 'help') {
-    help(message)
+    help(message);
   }
 
   if (command === 'donate') {
     await message.reply(`Thanks for all donates! :yum:
 Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
 Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
-    `)
+    `);
   }
 
   if (command === 'btc') {
-    crypto.btc(message)
+    crypto.btc(message);
   }
 
 
   if (command === 'eth') {
-    crypto.eth(message)
+    crypto.eth(message);
   }
 
   if (command === 'ltc') {
-    crypto.ltc(message)
+    crypto.ltc(message);
   }
 
   if (command === 'bcc') {
-    crypto.bcc(message)
+    crypto.bcc(message);
   }
 
   if (command === 'lsk') {
-    crypto.lsk(message)
+    crypto.lsk(message);
   }
 
   if (command === 'game') {
-    crypto.game(message)
+    crypto.game(message);
   }
 
   if (command === 'dash') {
-    crypto.dash(message)
+    crypto.dash(message);
   }
 
   if (command === 'btg') {
-    crypto.btg(message)
+    crypto.btg(message);
   }
 
   if (command === 'xmr') {
-    crypto.xmr(message)
+    crypto.xmr(message);
   }
 
   if (command === 'xrp') {
-    crypto.xrp(message)
+    crypto.xrp(message);
   }
 
   if (command === 'mag') {
-    crypto.mag(message)
+    crypto.mag(message);
   }
 
   if (command === 'doge') {
-    crypto.doge(message)
+    crypto.doge(message);
   }
 
   if (command === 'etn') {
-    crypto.etn(message)
+    crypto.etn(message);
   }
 
   if (command === 'bch') {
-    crypto.bch(message)
+    crypto.bch(message);
   }
 
   if (command === 'eos') {
-    crypto.eos(message)
+    crypto.eos(message);
   }
 
   if (command === 'iota') {
-    crypto.iota(message)
+    crypto.iota(message);
   }
 
   if (command === 'zcash') {
-    crypto.zcash(message)
+    crypto.zcash(message);
   }
 
   if (command === 'steem') {
-    crypto.steem(message)
+    crypto.steem(message);
   }
 
   if (command === 'sbd') {
-    crypto.steemd(message)
+    crypto.steemd(message);
   }
 });
 
-client.login(process.env.BOT_TOKEN) //process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
+client.login(process.env.BOT_TOKEN); // process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
