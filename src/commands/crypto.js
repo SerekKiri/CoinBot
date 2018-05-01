@@ -22,13 +22,11 @@ function time() {
 }
 
 
-
-
 const btc = async (message) => {
   try {
-    const btcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=PLN')
+    const btcQuery = await axios.get('https://api.coinmarketcap.com/v2/ticker/?convert=PLN')
     function colors() {
-      if (`${btcQuery.data[0].percent_change_1h}` < 0) {
+      if (`${btcQuery.data.data["1"].quotes.USD.percent_change_1h}` < 0) {
         return 0xF44336
       } else {
         return 0x00E676
@@ -37,12 +35,12 @@ const btc = async (message) => {
     const embed = new Discord.RichEmbed()
       .setTitle('[BTC] BitCoin price:')
       .setColor(colors())
-      .setDescription(` - ${btcQuery.data[0].price_usd} USD
-- ${btcQuery.data[0].price_pln} PLN 
+      .setDescription(` - ${btcQuery.data.data["1"].quotes.USD.price} USD
+- ${btcQuery.data.data["1"].quotes.PLN.price} PLN 
 - Percent Change in:
-    :clock1: :arrow_right:  ${btcQuery.data[0].percent_change_1h}% (1 hour)
-    :calendar: :arrow_right:  ${btcQuery.data[0].percent_change_24h}% (24 hours)
-    :calendar_spiral: :arrow_right:  ${btcQuery.data[0].percent_change_7d}% (7 days)
+    :clock1: :arrow_right:  ${btcQuery.data.data["1"].quotes.USD.percent_change_1h}% (1 hour)
+    :calendar: :arrow_right:  ${btcQuery.data.data["1"].quotes.USD.percent_change_24h}% (24 hours)
+    :calendar_spiral: :arrow_right:  ${btcQuery.data.data["1"].quotes.USD.percent_change_7d}% (7 days)
 `)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
@@ -54,9 +52,9 @@ const btc = async (message) => {
 
 const eth = async (message) => {
   try {
-    const ethQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/ethereum/?convert=PLN')
+    const ethQuery = await axios.get('https://api.coinmarketcap.com/v2/ticker/?convert=PLN')
     function colors() {
-      if (`${ethQuery.data[0].percent_change_1h}` < 0) {
+      if (`${ethQuery.data.data["1027"].quotes.USD.percent_change_1h}` < 0) {
         return 0xF44336
       } else {
         return 0x00E676
@@ -65,12 +63,12 @@ const eth = async (message) => {
     const embed = new Discord.RichEmbed()
       .setTitle('[ETH] Ethereum price:')
       .setColor(colors())
-      .setDescription(` - ${ethQuery.data[0].price_usd} USD
-- ${ethQuery.data[0].price_pln} PLN
+      .setDescription(` - ${ethQuery.data.data["1027"].quotes.USD.price} USD
+- ${ethQuery.data.data["1027"].quotes.PLN.price} PLN
 - Percent Change in:
-    :clock1: :arrow_right:  ${ethQuery.data[0].percent_change_1h}% (1 hour)
-    :calendar: :arrow_right:  ${ethQuery.data[0].percent_change_24h}% (24 hours)
-    :calendar_spiral: :arrow_right:  ${ethQuery.data[0].percent_change_7d}% (7 days)
+    :clock1: :arrow_right:  ${ethQuery.data.data["1027"].quotes.USD.percent_change_1h}% (1 hour)
+    :calendar: :arrow_right:  ${ethQuery.data.data["1027"].quotes.USD.percent_change_24h}% (24 hours)
+    :calendar_spiral: :arrow_right:  ${ethQuery.data.data["1027"].quotes.USD.percent_change_7d}% (7 days)
 `)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
@@ -83,9 +81,9 @@ const eth = async (message) => {
 
 const ltc = async (message) => {
   try {
-    const ltcQuery = await axios.get('https://api.coinmarketcap.com/v1/ticker/litecoin/?convert=PLN')
+    const ltcQuery = await axios.get('https://api.coinmarketcap.com/v2/ticker/?convert=PLN')
     function colors() {
-      if (`${ltcQuery.data[0].percent_change_1h}` < 0) {
+      if (`${ltcQuery.data.data["2"].quotes.USD.percent_change_1h}` < 0) {
         return 0xF44336
       } else {
         return 0x00E676
@@ -93,13 +91,13 @@ const ltc = async (message) => {
     }
     const embed = new Discord.RichEmbed()
       .setTitle('[LTC] LiteCoin price:')
-      .setColor(0x009688)
-      .setDescription(` - ${ltcQuery.data[0].price_usd} USD
-- ${ltcQuery.data[0].price_pln} PLN
+      .setColor(colors())
+      .setDescription(` - ${ltcQuery.data.data["2"].quotes.USD.price} USD
+- ${ltcQuery.data.data["2"].quotes.PLN.price} PLN
 - Percent Change in:
-    :clock1: :arrow_right:  ${ltcQuery.data[0].percent_change_1h}% (1 hour)
-    :calendar: :arrow_right:  ${ltcQuery.data[0].percent_change_24h}% (24 hours)
-    :calendar_spiral: :arrow_right:  ${ltcQuery.data[0].percent_change_7d}% (7 days)
+    :clock1: :arrow_right:  ${ltcQuery.data.data["2"].quotes.USD.percent_change_1h}% (1 hour)
+    :calendar: :arrow_right:  ${ltcQuery.data.data["2"].quotes.USD.percent_change_24h}% (24 hours)
+    :calendar_spiral: :arrow_right:  ${ltcQuery.data.data["2"].quotes.USD.percent_change_7d}% (7 days)
 `)
       .setFooter('Price at:' + time())
     await message.channel.send({ embed })
