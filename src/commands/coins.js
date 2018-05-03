@@ -13,14 +13,14 @@ const coin = (message) => {
 - !xmr     (Monero)
 - !xrp      (Ripple)
 - !lsk       (Lisk)
-~~- !mag    (Magnet)~~
+- !mag    (Magnet)
 - !doge   (DogeCoin)
 - !bch     (BitCoin cash)
 - !etn      (Electroneum)
 - !eos      (EOS)
 - !iota     (IOTA)
 - !zcash  (ZEC)
-~~- !sbd      (Steem Dollars)~~
+- !sbd      (Steem Dollars)
 - !steem (STEEM)
       `)
     message.channel.send({ embed }) 
