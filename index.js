@@ -53,9 +53,6 @@ Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
     crypto.lsk(message);
   }
 
-  if (command === 'game') {
-    crypto.game(message);
-  }
 
   if (command === 'dash') {
     crypto.dash(message);
@@ -71,10 +68,6 @@ Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
 
   if (command === 'xrp') {
     crypto.xrp(message);
-  }
-
-  if (command === 'mag') {
-    crypto.mag(message);
   }
 
   if (command === 'doge') {
@@ -110,4 +103,4 @@ Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
   }
 });
 
-client.login(process.env.BOT_TOKEN); // process.env.BOT_TOKEN it's for hosting if you want to use him just change it to config.token
+client.login(process.env.BOT_TOKEN); // process.env.BOT_TOKEN - for hosting
