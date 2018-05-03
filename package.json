@@ -6,7 +6,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "debug": "^3.1.0",
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "unix-timestamp-transform": "0.0.5"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

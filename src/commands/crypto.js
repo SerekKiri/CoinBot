@@ -2,29 +2,16 @@ const Discord = require('discord.js');
 const axios = require('axios');
 const debug = require('debug')('crypto');
 const coinIDs = require('../coinIDs.json');
+const transform = require('unix-timestamp-transform');
 
-function time() {
-  // Multiply by 1000 because JS works in milliseconds instead of the UNIX seconds
-  const date = new Date();
-
-  const year = date.getUTCFullYear();
-  let month = date.getUTCMonth() + 1; // getMonth() is zero-indexed, so we'll increment to get the correct month number
-  let day = date.getUTCDate();
-  let hours = date.getUTCHours();
-  let minutes = date.getUTCMinutes();
-  let seconds = date.getUTCSeconds();
-
-  month = (month < 10) ? `0${month}` : month;
-  day = (day < 10) ? `0${day}` : day;
-  hours = (hours < 10) ? `0${hours}` : hours;
-  minutes = (minutes < 10) ? `0${minutes}` : minutes;
-  seconds = (seconds < 10) ? `0${seconds}` : seconds;
-
-  return `${hours}:${minutes}:${seconds} ${day}-${month}-${year}`;
+function time(query) {
+  const unixTime = query.data.data.last_updated;
+  const date = transform.transformUnixTime(unixTime).toString();
+  return date;
 }
 
 function colors(query) {
-  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
+  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336; 
   return 0x00E676;
 }
 
@@ -42,7 +29,7 @@ const responder = async (message, command) => {
     :calendar: :arrow_right:  ${query.data.data.quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${query.data.data.quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()} UTC`);
+      .setFooter(`Price at: ${time(query)} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
