@@ -40,7 +40,7 @@ const btc = async (message) => {
     :calendar: :arrow_right:  ${btcQuery.data.data['1'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${btcQuery.data.data['1'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -60,7 +60,7 @@ const eth = async (message) => {
     :calendar: :arrow_right:  ${ethQuery.data.data['1027'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${ethQuery.data.data['1027'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -81,7 +81,7 @@ const ltc = async (message) => {
     :calendar: :arrow_right:  ${ltcQuery.data.data['2'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${ltcQuery.data.data['2'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -101,7 +101,7 @@ const lsk = async (message) => {
     :calendar: :arrow_right:  ${lskQuery.data.data['1214'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:   ${lskQuery.data.data['1214'].quotes.USD.percent_change_7d}%% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -122,7 +122,7 @@ const dash = async (message) => {
     :calendar: :arrow_right:  ${dashQuery.data.data['131'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${dashQuery.data.data['131'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -142,7 +142,7 @@ const btg = async (message) => {
     :calendar: :arrow_right:  ${btgQuery.data.data['2083'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${btgQuery.data.data['2083'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -162,7 +162,7 @@ const xmr = async (message) => {
     :calendar: :arrow_right:  ${xmrQuery.data.data['328'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${xmrQuery.data.data['328'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -182,7 +182,7 @@ const xrp = async (message) => {
     :calendar: :arrow_right:  ${xrpQuery.data.data['52'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${xrpQuery.data.data['52'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -202,7 +202,7 @@ const doge = async (message) => {
     :calendar: :arrow_right:  ${dogeQuery.data.data['74'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${dogeQuery.data.data['74'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -222,7 +222,7 @@ const etn = async (message) => {
     :calendar: :arrow_right:  ${etnQuery.data.data['2137'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${etnQuery.data.data['2137'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -242,7 +242,7 @@ const bch = async (message) => {
     :calendar: :arrow_right:  ${bchQuery.data.data['1831'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${bchQuery.data.data['1831'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -262,7 +262,7 @@ const eos = async (message) => {
     :calendar: :arrow_right:  ${eosQuery.data.data['1765'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${eosQuery.data.data['1765'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -282,7 +282,7 @@ const iota = async (message) => {
     :calendar: :arrow_right:  ${iotaQuery.data.data['1720'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${iotaQuery.data.data['1720'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -302,7 +302,7 @@ const zcash = async (message) => {
     :calendar: :arrow_right:  ${zcashQuery.data.data['1437'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${zcashQuery.data.data['1437'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
@@ -323,7 +323,7 @@ const steem = async (message) => {
     :calendar: :arrow_right:  ${steemQuery.data.data['1230'].quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${steemQuery.data.data['1230'].quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at:${time()}`);
+      .setFooter(`Price at:${time()} UTC`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);

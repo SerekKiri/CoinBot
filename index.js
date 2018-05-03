@@ -103,4 +103,4 @@ Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
   }
 });
 
-client.login(process.env.BOT_TOKEN); // process.env.BOT_TOKEN - for hosting
+client.login(process.env.BOT_TOKEN); // process.env.BOT_TOKEN - for hosting 
