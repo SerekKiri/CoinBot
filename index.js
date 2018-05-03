@@ -19,88 +19,20 @@ client.on('message', async (message) => {
 
   if (command === 'coins') {
     coins(message);
-  }
-
-  if (command === 'help') {
+  } else if (command === 'help') {
     help(message);
-  }
-
-  if (command === 'donate') {
+  } else if (command === 'donate') {
     await message.reply(`Thanks for all donates! :yum:
 Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
 Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
     `);
-  }
-
-  if (command === 'btc') {
-    crypto.btc(message);
-  }
-
-
-  if (command === 'eth') {
-    crypto.eth(message);
-  }
-
-  if (command === 'ltc') {
-    crypto.ltc(message);
-  }
-
-  if (command === 'bcc') {
-    crypto.bcc(message);
-  }
-
-  if (command === 'lsk') {
-    crypto.lsk(message);
-  }
-
-
-  if (command === 'dash') {
-    crypto.dash(message);
-  }
-
-  if (command === 'btg') {
-    crypto.btg(message);
-  }
-
-  if (command === 'xmr') {
-    crypto.xmr(message);
-  }
-
-  if (command === 'xrp') {
-    crypto.xrp(message);
-  }
-
-  if (command === 'doge') {
-    crypto.doge(message);
-  }
-
-  if (command === 'etn') {
-    crypto.etn(message);
-  }
-
-  if (command === 'bch') {
-    crypto.bch(message);
-  }
-
-  if (command === 'eos') {
-    crypto.eos(message);
-  }
-
-  if (command === 'iota') {
-    crypto.iota(message);
-  }
-
-  if (command === 'zcash') {
-    crypto.zcash(message);
-  }
-
-  if (command === 'steem') {
-    crypto.steem(message);
-  }
-
-  if (command === 'sbd') {
-    crypto.steemd(message);
+  } else {
+    crypto(message, command);
   }
 });
 
-client.login(process.env.BOT_TOKEN); // process.env.BOT_TOKEN - for hosting 
+if (process.env.NODE_ENV === 'production' || process.env.BOT_TOKEN !== undefined) {
+  client.login(process.env.BOT_TOKEN);
+} else {
+  client.login(config.token);
+}
