@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "debug": "^3.1.0",
     "discord.js": "^11.3.2",
+    "plotly": "^1.0.6",
     "unix-timestamp-transform": "0.0.5"
   },
   "devDependencies": {

@@ -11,13 +11,13 @@ function time(query) {
 }
 
 function colors(query) {
-  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336; 
+  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
   return 0x00E676;
 }
 
 const responder = async (message, command) => {
   try {
-    const coinID = coinIDs[command];
+    const coinID = coinIDs.coinmarketcap[command];
     const query = await axios.get(`https://api.coinmarketcap.com/v2/ticker/${coinID}/?convert=PLN`);
     const embed = new Discord.RichEmbed()
       .setTitle(`[${query.data.data.symbol}] ${query.data.data.name} price:`)
@@ -29,7 +29,7 @@ const responder = async (message, command) => {
     :calendar: :arrow_right:  ${query.data.data.quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${query.data.data.quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at: ${time(query)} UTC`);
+      .setFooter(`Price at: ${time(query)}`);
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);

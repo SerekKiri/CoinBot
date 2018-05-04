@@ -3,6 +3,7 @@ const debug = require('debug')('index');
 
 const config = require('./src/config');
 const crypto = require('./src/commands/crypto');
+const graph = require('./src/commands/graph');
 const coins = require('./src/commands/coins');
 const help = require('./src/commands/help');
 
@@ -26,6 +27,8 @@ client.on('message', async (message) => {
 Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
 Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0
     `);
+  } else if (command.startsWith('graph')) {
+    graph(message, command);
   } else {
     crypto(message, command);
   }
