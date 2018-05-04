@@ -11,7 +11,7 @@ function time(query) {
 }
 
 function colors(query) {
-  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336; 
+  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
   return 0x00E676;
 }
 
