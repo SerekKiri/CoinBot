@@ -15,11 +15,15 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "nodemon": "^1.17.2"
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "supertest": "^3.0.0"
   },
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "eslint --fix --ext .js"
+    "lint": "eslint --ext .js, src test",
+    "lint:fix": "eslint --ext .js, --fix src test",
+    "test": "jest --forceExit --verbose"
   },
   "repository": {
     "type": "git",
@@ -30,5 +34,12 @@
   "bugs": {
     "url": "https://github.com/animek66/coin_bot/issues"
   },
-  "homepage": "https://github.com/animek66/coin_bot/blob/master/README.md"
+  "homepage": "https://github.com/animek66/coin_bot/blob/master/README.md",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "node"
+    ]
+  }
 }

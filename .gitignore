@@ -77,4 +77,6 @@ dist
 VERY VERY IMPORTANT
 src/token.js
 
-src/config\.json
+src/config/.json
+
+.vscode
