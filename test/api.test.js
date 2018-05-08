@@ -9,7 +9,7 @@ describe('GET all coins (coinmarketcap)', () => {
       .get(`${value}/?convert=PLN`)
       .set('Accept', 'application/json')
       .expect('Content-Type', 'application/json')
-      .expect(res => expect(res.body.data.quotes.PLN.price).not.toBeNull)
+      .expect(res => expect(res.body.data.quotes.PLN.price).not.toBeNull())
       .expect(200, done);
   }));
 });
