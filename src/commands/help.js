@@ -7,9 +7,9 @@ const help = async (message) => {
       .setTitle('Available commands')
       .setColor(0x4c4cff)
       .setDescription(`
-        - !help
-        - !coins
-        - !donate (We are collecting for hosting)
+- !help
+- !coins
+- !donate (We are collecting for hosting)
         Legend:
                 :clock1: - 1 hour
                 :calendar: - 24 hours

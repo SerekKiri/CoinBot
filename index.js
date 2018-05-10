@@ -24,13 +24,13 @@ client.on('message', async (message) => {
   const command = message.content.slice(config.prefix.length);
 
   switch (command) {
-    case 'coins:':
+    case 'coins':
       coins(message);
       break;
-    case 'help:':
+    case 'help':
       help(message);
       break;
-    case 'donate:':
+    case 'donate':
       try {
         await message.reply(`Thanks for all donates! :yum:
       Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
