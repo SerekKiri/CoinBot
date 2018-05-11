@@ -13,7 +13,7 @@ const graphCreator = async (message, command) => {
     const data = {
       x: [],
       y: [],
-      type: 'scatter'
+      type: 'scatter',
     };
     Object.keys(query.data.price).forEach((key) => {
       data.x.push(query.data.price[key][0]);
