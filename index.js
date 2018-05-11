@@ -20,29 +20,27 @@ client.on('ready', () => {
 });
 
 client.on('message', async (message) => {
-  const command = message.content.slice(config.prefix.length);
+  if (message.content.substring(0, config.prefix.length) === config.prefix) {
+    const command = message.content.slice(config.prefix.length);
 
-  switch (command) {
-    case 'coins':
-      coins(message);
-      break;
-    case 'help':
-      help(message);
-      break;
-    case 'donate':
-      try {
-        await message.reply(`Thanks for all donates! :yum:
-      Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
-      Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0`);
-      } catch (err) {
-        debug(err);
-      }
-      break;
-    default:
-      if (command.startsWith('graph')) {
-        graph(message, command);
-      } else {
+    switch (command) {
+      case 'coins':
+        coins(message);
+        break;
+      case 'help':
+        help(message);
+        break;
+      case 'donate':
+        try {
+          await message.reply(`Thanks for all donates! :yum:
+        Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
+        Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0`);
+        } catch (err) {
+          debug(err);
+        }
+        break;
+      default:
         crypto(message, command);
-      }
+    }
   }
 });
