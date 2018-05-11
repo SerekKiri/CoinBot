@@ -3,7 +3,6 @@ const debug = require('debug')('index');
 
 const config = require('./src/config.json');
 const crypto = require('./src/commands/crypto');
-const graph = require('./src/commands/graph');
 const coins = require('./src/commands/coins');
 const help = require('./src/commands/help');
 
