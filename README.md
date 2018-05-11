@@ -1,4 +1,4 @@
-# Coin bot
+# Coin bot [![Build Status](https://travis-ci.org/animek66/coin_bot.svg?branch=master)](https://travis-ci.org/animek66/coin_bot)
 
 
 ## Add bot to your Discord server!
