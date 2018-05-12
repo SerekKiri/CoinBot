@@ -7,5 +7,11 @@ install:
 script:
   - npm run lint
   - npm run test
-notifications:
-  - webhooks: https://discordapp.com/api/webhooks/444529597279633417/vw_kuxqUNh3OerivncHazRw8DMrluDYY2Qw37Sl6-AZXSoknYcaGZQIbcHuCvWFCnOPw
+after_success:
+  - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL
