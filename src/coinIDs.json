@@ -38,7 +38,9 @@
         "sbd": 1312,
         "mag": 2218,
         "magnet": 2218,
-        "nexo": 2694
+        "nexo": 2694,
+        "holo": 2682,
+        "hot": 2682
     },
     "coincapio": {
         "doge": "DOGE"
