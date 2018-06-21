@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production' || process.env.BOT_TOKEN !== undefined
 
 client.on('ready', () => {
   debug(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-  client.user.setPresence({ game: { name: 'Paying taxes the movie', type: 3 } });
+  client.user.setPresence({ game: { name: 'for currencies changes', type: 3 } });
 });
 
 client.on('message', async (message) => {
@@ -44,3 +44,5 @@ client.on('message', async (message) => {
     }
   }
 });
+
+
