@@ -9,6 +9,7 @@ const help = async (message) => {
       .setDescription(`
 - !help
 - !coins
+- !github
 - !donate (We are collecting for hosting)
         Legend:
                 :clock1: - 1 hour
