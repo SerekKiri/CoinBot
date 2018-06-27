@@ -18,19 +18,23 @@ function colors(query) {
 const responder = async (message, command) => {
   try {
     const coinID = coinIDs.coinmarketcap[command];
-    const query = await axios.get(`https://api.coinmarketcap.com/v2/ticker/${coinID}/?convert=PLN`);
-    const embed = new Discord.RichEmbed()
-      .setTitle(`[${query.data.data.symbol}] ${query.data.data.name} price:`)
-      .setColor(colors(query))
-      .setDescription(` - ${query.data.data.quotes.USD.price} USD
+    if (!(coinID === undefined || typeof coinID === 'undefined')) {
+      const query = await axios.get(`https://api.coinmarketcap.com/v2/ticker/${coinID}/?convert=PLN`);
+      const embed = new Discord.RichEmbed()
+        .setTitle(`[${query.data.data.symbol}] ${query.data.data.name} price:`)
+        .setColor(colors(query))
+        .setDescription(` - ${query.data.data.quotes.USD.price} USD
 - ${query.data.data.quotes.PLN.price} PLN 
 - Percent Change in:
     :clock1: :arrow_right:  ${query.data.data.quotes.USD.percent_change_1h}% (1 hour)
     :calendar: :arrow_right:  ${query.data.data.quotes.USD.percent_change_24h}% (24 hours)
     :calendar_spiral: :arrow_right:  ${query.data.data.quotes.USD.percent_change_7d}% (7 days)
 `)
-      .setFooter(`Price at: ${time(query)}`);
-    await message.channel.send({ embed });
+        .setFooter(`Price at: ${time(query)}`);
+      await message.channel.send({ embed });
+    } else {
+      debug(`${command} is an undefined coin`);
+    }
   } catch (err) {
     debug(err);
   }
