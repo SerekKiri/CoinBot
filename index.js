@@ -40,10 +40,12 @@ client.on('message', async (message) => {
         case 'github':
         github(message)
         break;
+      case 'github':
+        message.reply(' Bot repository --> https://github.com/animek66/coin_bot/');
+        break;
       default:
         crypto(message, command);
     }
   }
 });
-
 
