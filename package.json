@@ -8,6 +8,7 @@
     "debug": "^3.1.0",
     "discord.js": "^11.3.2",
     "plotly": "^1.0.6",
+    "turndown": "^4.0.2",
     "unix-timestamp-transform": "0.0.5"
   },
   "devDependencies": {

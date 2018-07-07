@@ -1,10 +1,14 @@
 const Discord = require('discord.js');
 const debug = require('debug')('index');
+const TurndownService = require('turndown')
+const turndownService = new TurndownService()
 
 const config = require('./src/config.json');
 const crypto = require('./src/commands/crypto');
 const coins = require('./src/commands/coins');
 const help = require('./src/commands/help');
+const donate = require('./src/commands/donate');
+const github = require('./src/commands/github')
 
 const client = new Discord.Client();
 
@@ -31,15 +35,10 @@ client.on('message', async (message) => {
         help(message);
         break;
       case 'donate':
-        try {
-          await message.reply(`Thanks for all donates! :yum:
-        Bitcoin wallet: 1B3GQWbhGSf3qFNKB3rzRF7eccBUYfEiKZ  
-        Ethereum wallet: 0x511e3952faB38a8a7E1Da30c16671a947dBD43c0`);
-        } catch (err) {
-          debug(err);
-        }
+        donate(message)
+        break;
         case 'github':
-        message.reply(' Bot repository --> https://github.com/animek66/coin_bot/')
+        github(message)
         break;
       default:
         crypto(message, command);

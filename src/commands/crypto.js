@@ -15,6 +15,12 @@ function colors(query) {
   return 0x00E676;
 }
 
+function Round(n, k)
+{
+    const factor = Math.pow(10, k)
+    return Math.round(n*factor)/factor
+}
+
 const responder = async (message, command) => {
   try {
     const coinID = coinIDs.coinmarketcap[command];
