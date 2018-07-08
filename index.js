@@ -37,11 +37,8 @@ client.on('message', async (message) => {
       case 'donate':
         donate(message)
         break;
-        case 'github':
-        github(message)
-        break;
       case 'github':
-        message.reply(' Bot repository --> https://github.com/animek66/coin_bot/');
+        github(message)
         break;
       default:
         crypto(message, command);
