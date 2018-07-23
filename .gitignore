@@ -75,8 +75,6 @@ gen
 
 dist
 VERY VERY IMPORTANT
-src/token.js
-
-src/config.json
+src/token.json
 
 .vscode
