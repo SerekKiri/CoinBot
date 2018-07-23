@@ -10,6 +10,7 @@ const github = require('./src/commands/github');
 
 const client = new Discord.Client();
 
+
 if (process.env.NODE_ENV === 'production' || process.env.BOT_TOKEN !== undefined) {
   client.login(process.env.BOT_TOKEN);
 } else {
