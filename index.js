@@ -1,14 +1,12 @@
 const Discord = require('discord.js');
 const debug = require('debug')('index');
-const TurndownService = require('turndown')
-const turndownService = new TurndownService()
 
 const config = require('./src/config.json');
 const crypto = require('./src/commands/crypto');
 const coins = require('./src/commands/coins');
 const help = require('./src/commands/help');
 const donate = require('./src/commands/donate');
-const github = require('./src/commands/github')
+const github = require('./src/commands/github');
 
 const client = new Discord.Client();
 
@@ -35,10 +33,10 @@ client.on('message', async (message) => {
         help(message);
         break;
       case 'donate':
-        donate(message)
+        donate(message);
         break;
       case 'github':
-        github(message)
+        github(message);
         break;
       default:
         crypto(message, command);
