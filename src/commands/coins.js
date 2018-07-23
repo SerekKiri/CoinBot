@@ -1,12 +1,13 @@
-const Discord = require('discord.js');
+const TurndownService = require('turndown');
 const debug = require('debug')('coins');
+
+const turndownService = new TurndownService();
 
 const coin = async (message) => {
   try {
-    const embed = new Discord.RichEmbed()
-      .setTitle('Available coins price:')
-      .setColor(0xC6FF00)
-      .setDescription(`
+    const embed = {
+      title: 'Available coins price:',
+      description: `
 - !btc      (BitCoin)
 - !eth      (Ethereum)
 - !ltc       (LiteCoin)
@@ -23,7 +24,24 @@ const coin = async (message) => {
 - !iota     (IOTA)
 - !zcash  (ZEC)
 - !sbd      (Steem Dollars)
-- !steem (STEEM)`);
+- !steem (STEEM)`,
+      color: 0xC6FF00,
+      footer: {
+        icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
+        text: 'Coin bot by Kiritito, Mickson & takidelfin',
+      },
+      author: {
+        name: 'Coin bot',
+        url: 'https://github.com/quritto/coin_bot',
+        icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
+      },
+      fields: [
+        {
+          name: 'More coins?',
+          value: turndownService.turndown('Write your coin in issue here:</br><a href="https://github.com/quritto/coin_bot/issues">Github.com</a></br>'),
+        },
+      ],
+    };
     await message.channel.send({ embed });
   } catch (err) {
     debug(err);
