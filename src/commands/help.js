@@ -6,7 +6,6 @@ const help = async (message) => {
       title: 'Coin bot commands:',
       description: '- !help (All commands)\n- !coins (All coins)\n- !github (Coin bot repository)\n- !donate (We are collecting for hosting)',
       color: 0x4c4cff,
-      timestamp: '2018-07-23T15:52:14.304Z',
       footer: {
         icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
         text: 'Coin bot by Kiritito, Mickson & takidelfin',
