@@ -31,7 +31,7 @@ const responder = async (message, command) => {
         },
         fields: [
           {
-            name: 'Chart from 30 days:',
+            name: 'Chart from last 30 days:',
             value: '**More charts coming soon..**',
           },
         ],
