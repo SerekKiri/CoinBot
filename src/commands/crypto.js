@@ -1,13 +1,6 @@
 const axios = require('axios');
 const debug = require('debug')('crypto');
 const coinIDs = require('../coinIDs.json');
-// const transform = require('unix-timestamp-transform');
-
-/* function time(query) {
-  const unixTime = query.data.data.last_updated;
-  const date = transform.transformUnixTime(unixTime).toString();
-  return date;
-} */
 
 function colors(query) {
   if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
@@ -23,7 +16,7 @@ const responder = async (message, command) => {
         title: `[${query.data.data.symbol}] ${query.data.data.name} price:`,
         description: ` - ${query.data.data.quotes.USD.price} USD\n- ${query.data.data.quotes.PLN.price} PLN`,
         color: colors(query),
-        timestamp: '2018-07-23T15:52:14.304Z',
+        timestamp: new Date(query.data.data.last_updated * 1000),
         footer: {
           icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
           text: 'Coin bot by Kiritito, Mickson & takidelfin',
