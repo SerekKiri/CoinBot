@@ -6,17 +6,17 @@ const coins = require('./src/commands/coins');
 const help = require('./src/commands/help');
 const donate = require('./src/commands/donate');
 const github = require('./src/commands/github');
-// const token = require('./src/token.json');
+const token = require('./src/token.json');
 
 const client = new Discord.Client();
 
-client.login(process.env.BOT_TOKEN);
+// client.login(process.env.BOT_TOKEN);
 
-// client.login(token.token);
+client.login(token.token);
 
 client.on('ready', () => {
   debug(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-  client.user.setPresence({ game: { name: client.guilds.size + ' servers', type: 3 } });
+  client.user.setPresence({ game: { name: client.users.size + ' miners', type: 3 } });
 });
 
 client.on('message', async (message) => {
