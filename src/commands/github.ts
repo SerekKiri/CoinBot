@@ -1,7 +1,7 @@
-import TurndownService from 'turndown';
+import turndown from 'turndown';
 import debug from 'debug';
 
-const turndownService = new TurndownService();
+const turndownService = new turndown();
 
 const git = async (message) => {
   try {

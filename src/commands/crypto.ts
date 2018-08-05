@@ -1,6 +1,6 @@
 import axios from 'axios';
 const debug = require('debug')('crypto');
-import coinIDs from '../coinIDs.json';
+import coinIDsJson from '../coinIDs.json';
 
 function colors(query) {
   if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
@@ -9,7 +9,7 @@ function colors(query) {
 
 const responder = async (message, command) => {
   try {
-    const coinID = coinIDs.coinmarketcap[command];
+    const coinID = coinIDsJson.coinmarketcap[command];
     if (!(coinID === undefined || typeof coinID === 'undefined')) {
       const query = await axios.get(`https://api.coinmarketcap.com/v2/ticker/${coinID}/?convert=PLN`);
       const embed = {

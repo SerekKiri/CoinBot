@@ -1,7 +1,7 @@
-import TurndownService from 'turndown';
+import turndown from 'turndown';
 const debug = require('debug')('coins');
 
-const turndownService = new TurndownService();
+const turndownService = new turndown();
 
 const coin = async (message) => {
   try {
@@ -37,7 +37,7 @@ const coin = async (message) => {
       },
       fields: [
         {
-          name: "You don't see your favourite coin?",
+          name: 'You don\'t see your favourite coin?',
           value: turndownService.turndown('Write your coin in issue here:</br><a href="https://github.com/quritto/coin_bot/issues">Github.com</a></br>'),
         },
       ],

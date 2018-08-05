@@ -1,7 +1,7 @@
-import TurndownService from 'turndown';
+import turndown from 'turndown';
 const debug = require('debug');
 
-const turndownService = new TurndownService();
+const turndownService = new turndown();
 
 const mess = async (message) => {
   try {

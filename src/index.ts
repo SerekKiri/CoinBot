@@ -1,7 +1,7 @@
-import Discord from 'discord.js';
+import discordJs from 'discord.js';
 import debug from 'debug';
 debug('index');
-import config from './config.json';
+import configJson from './config.json';
 import crypto from './commands/crypto';
 import coins from './commands/coins';
 import help from './commands/help';
@@ -9,7 +9,7 @@ import donate from './commands/donate';
 import github from './commands/github';
 // const token = require('./src/token.json');
 
-const client = new Discord.Client();
+const client = new discordJs.Client();
 
 client.login(process.env.BOT_TOKEN);
 
@@ -22,8 +22,8 @@ client.on('ready', () => {
 });
 
 client.on('message', async (message) => {
-  if (message.content.substring(0, config.prefix.length) === config.prefix) {
-    const command = message.content.slice(config.prefix.length);
+  if (message.content.substring(0, configJson.prefix.length) === configJson.prefix) {
+    const command = message.content.slice(configJson.prefix.length);
 
     switch (command) {
       case 'coins':
@@ -43,4 +43,3 @@ client.on('message', async (message) => {
     }
   }
 });
-
