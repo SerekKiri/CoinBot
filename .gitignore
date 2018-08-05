@@ -78,3 +78,5 @@ VERY VERY IMPORTANT
 src/token.json
 
 .vscode
+
+src/token\.js
