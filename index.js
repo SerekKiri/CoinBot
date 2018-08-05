@@ -16,7 +16,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
   debug(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
-  client.user.setPresence({ game: { name: 'for currencies changes', type: 3 } });
+  client.user.setPresence({ game: { name: client.guilds.size + ' servers', type: 3 } });
 });
 
 client.on('message', async (message) => {
