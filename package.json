@@ -2,7 +2,7 @@
   "name": "coinbot",
   "version": "0.7.0",
   "description": "Crypto bot",
-  "main": "./src/index.js",
+  "main": "./dist/src/index.js",
   "dependencies": {
     "axios": "^0.18.0",
     "debug": "^3.1.0",
@@ -12,18 +12,27 @@
     "unix-timestamp-transform": "0.0.5"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "jest": "^22.4.3",
-    "nodemon": "^1.17.3",
-    "supertest": "^3.0.0"
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.6",
+    "jest": "^23.4.2",
+    "shx": "^0.3.2",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.1.0",
+    "ts-jest": "^23.1.2",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon src/index.js",
-    "lint": "eslint --ext .js, src test",
-    "lint:fix": "eslint --ext .js, --fix src test",
+    "start": "npm run watch-ts && nodemon ./dist/src/index.js",
+    "dev": "npm run tslint && ts-node src/index.ts",
+    "build": "npm run tslint && shx rm -rf dist && npm run build-ts",
+    "serve": "node ./dist/src/index.js",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "lint:fix": "tslint -c tslint.json -p tsconfig.json --fix",
     "test": "jest --forceExit --verbose"
   },
   "repository": {
@@ -37,8 +46,15 @@
   },
   "homepage": "https://github.com/animek66/coin_bot/blob/master/README.md",
   "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
+      "ts",
+      "tsx",
       "js",
+      "jsx",
       "json",
       "node"
     ]

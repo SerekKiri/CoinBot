@@ -1,11 +1,12 @@
-const Discord = require('discord.js');
-const debug = require('debug')('index');
-const config = require('./src/config.json');
-const crypto = require('./src/commands/crypto');
-const coins = require('./src/commands/coins');
-const help = require('./src/commands/help');
-const donate = require('./src/commands/donate');
-const github = require('./src/commands/github');
+import Discord from 'discord.js';
+import debug from 'debug';
+debug('index');
+import config from './config.json';
+import crypto from './commands/crypto';
+import coins from './commands/coins';
+import help from './commands/help';
+import donate from './commands/donate';
+import github from './commands/github';
 // const token = require('./src/token.json');
 
 const client = new Discord.Client();
@@ -16,6 +17,7 @@ client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
   debug(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
+  // @ts-ignore
   client.user.setPresence({ game: { name: 'for currencies changes', type: 3 } });
 });
 

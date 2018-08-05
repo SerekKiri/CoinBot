@@ -1,6 +1,6 @@
-const axios = require('axios');
+import axios from 'axios';
 const debug = require('debug')('crypto');
-const coinIDs = require('../coinIDs.json');
+import coinIDs from '../coinIDs.json';
 
 function colors(query) {
   if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
@@ -45,4 +45,4 @@ const responder = async (message, command) => {
   }
 };
 
-module.exports = responder;
+export default responder;

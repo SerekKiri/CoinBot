@@ -1,4 +1,4 @@
-const TurndownService = require('turndown');
+import TurndownService from 'turndown';
 const debug = require('debug')('coins');
 
 const turndownService = new TurndownService();
@@ -48,4 +48,4 @@ const coin = async (message) => {
   }
 };
 
-module.exports = coin;
+export default coin;

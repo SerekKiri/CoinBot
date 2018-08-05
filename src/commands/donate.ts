@@ -1,4 +1,4 @@
-const TurndownService = require('turndown');
+import TurndownService from 'turndown';
 const debug = require('debug');
 
 const turndownService = new TurndownService();
@@ -16,7 +16,7 @@ const mess = async (message) => {
       color: 151511,
       footer: {
         icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
-        text: 'Coinbot by Kiritito & Mickson',
+        text: 'Coinbot by Kiritito & Mickson & xdk78',
       },
     };
     message.channel.send({ embed });
@@ -25,4 +25,4 @@ const mess = async (message) => {
   }
 };
 
-module.exports = mess;
+export default mess;

@@ -1,5 +1,5 @@
-const coinID = require('../src/coinIDs.json');
-const request = require('supertest');
+import coinID from '../src/coinIDs.json';
+import request from'supertest';
 
 const BASE_URL = 'https://api.coinmarketcap.com/v2/ticker/';
 

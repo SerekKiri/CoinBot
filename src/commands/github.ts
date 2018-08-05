@@ -1,5 +1,5 @@
-const TurndownService = require('turndown');
-const debug = require('debug');
+import TurndownService from 'turndown';
+import debug from 'debug';
 
 const turndownService = new TurndownService();
 
@@ -25,4 +25,4 @@ const git = async (message) => {
   }
 };
 
-module.exports = git;
+export default git;

@@ -28,4 +28,4 @@ const help = async (message) => {
   }
 };
 
-module.exports = help;
+export default help;

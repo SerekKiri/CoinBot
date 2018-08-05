@@ -1,0 +1,11 @@
+{
+    "extends": "tslint-config-airbnb",
+    "rules": {
+        "max-line-length": false,
+    },
+    "linterOptions": {
+        "exclude": [
+            "*.json"
+        ]
+    }
+}
