@@ -24,6 +24,7 @@ const coin = async (message) => {
 - !iota     (IOTA)
 - !zcash  (ZEC)
 - !sbd      (Steem Dollars)
+- !etc    (Ethereum Classic)
 - !steem (STEEM)`,
       color: 0xC6FF00,
       footer: {
