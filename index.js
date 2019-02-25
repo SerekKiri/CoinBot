@@ -12,7 +12,7 @@ const client = new Discord.Client();
 
 client.login(process.env.BOT_TOKEN);
 
-// client.login(token.token);
+// client.login(config.token);
 
 client.on('ready', () => {
   debug(`Coin bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
