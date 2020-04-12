@@ -16,7 +16,7 @@ const responder = async (message, command) => {
       )
 
       const data = query.data.data[coinID]
-      console.log(data.quotes.USD.percentage_change_1h)
+
       const embed = {
         title: `[${data.symbol}] ${data.name} price:`,
         description: ` - ${data.quotes.USD.price.toFixed(
