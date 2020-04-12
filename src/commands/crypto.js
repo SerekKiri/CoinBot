@@ -1,24 +1,40 @@
-const axios = require('axios');
-const debug = require('debug')('crypto');
-const coinIDs = require('../coinIDs.json');
+const axios = require('axios')
+const debug = require('debug')('crypto')
+const coinIDs = require('../coinIDs.json')
 
-function colors(query) {
-  if (query.data.data.quotes.USD.percent_change_1h < 0) return 0xF44336;
-  return 0x00E676;
+function colors(data) {
+  if (data.quotes.USD.percent_change_1h < 0) return 0xf44336
+  return 0x00e676
 }
 
 const responder = async (message, command) => {
   try {
-    const coinID = coinIDs.coinmarketcap[command];
+    const coinID = coinIDs.coinmarketcap[command]
     if (!(coinID === undefined || typeof coinID === 'undefined')) {
-      const query = await axios.get(`https://api.coinmarketcap.com/v2/ticker/${coinID}/?convert=PLN`);
+      const query = await axios.get(
+        `https://api.alternative.me/v2/ticker/${coinID}/?convert=PLN`
+      )
+
+      const data = query.data.data[coinID]
+      console.log(data.quotes.USD.percentage_change_1h)
       const embed = {
-        title: `[${query.data.data.symbol}] ${query.data.data.name} price:`,
-        description: ` - ${query.data.data.quotes.USD.price} USD\n- ${query.data.data.quotes.PLN.price} PLN\n**Percent Change in:**\n:clock1: :arrow_right:  ${query.data.data.quotes.USD.percent_change_1h}% (1 hour)\n:calendar: :arrow_right:  ${query.data.data.quotes.USD.percent_change_24h}% (24 hours)\n:calendar_spiral: :arrow_right:  ${query.data.data.quotes.USD.percent_change_7d}% (7 days)`,
-        color: colors(query),
-        timestamp: new Date(query.data.data.last_updated * 1000),
+        title: `[${data.symbol}] ${data.name} price:`,
+        description: ` - ${data.quotes.USD.price.toFixed(
+          2
+        )} USD\n- ${data.quotes.PLN.price.toFixed(
+          2
+        )} PLN\n**Percent Change in:**\n:clock1: :arrow_right:  ${
+          data.quotes.USD.percentage_change_1h
+        }% (1 hour)\n:calendar: :arrow_right:  ${
+          data.quotes.USD.percentage_change_24h
+        }% (24 hours)\n:calendar_spiral: :arrow_right:  ${
+          data.quotes.USD.percentage_change_7d
+        }% (7 days)`,
+        color: colors(data),
+        timestamp: new Date(data.last_updated * 1000),
         footer: {
-          icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
+          icon_url:
+            'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
           text: 'Coin bot by Kiritito, Mickson & takidelfin',
         },
         image: {
@@ -27,22 +43,24 @@ const responder = async (message, command) => {
         author: {
           name: 'Coin bot',
           url: 'https://github.com/quritto/coin_bot',
-          icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
+          icon_url:
+            'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
         },
         fields: [
           {
             name: 'Chart from last 30 days:',
-            value: '**More charts coming soon..**',
+            value: '**More charts coming soon**',
           },
         ],
-      };
-      message.channel.send({ embed });
+      }
+
+      message.channel.send({ embed })
     } else {
-      debug(`${command} is an undefined coin`);
+      debug(`${command} is an undefined coin`)
     }
   } catch (err) {
-    debug(err);
+    console.log(err)
   }
-};
+}
 
-module.exports = responder;
+module.exports = responder

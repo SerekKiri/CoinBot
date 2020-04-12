@@ -80,3 +80,5 @@ src/token.json
 .vscode
 
 src/token\.js
+
+src/config.json
