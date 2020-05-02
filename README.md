@@ -2,12 +2,10 @@
 
 # :warning: :warning: This bot is no longer under maintainence :warning: :warning:
 
-~~## Add bot to your Discord server!~~
+## Add bot to your Discord server!
 
-~~OAuth link:~~
+OAuth link:
 
 > [discordapp.com/coinbot](https://discordapp.com/oauth2/authorize?client_id=%20395240399750299658&scope=bot&permissions=0)
 
-## Bot is offline!
-
-~~:warning: Remember about giving bot role with proper permissions! :warning:~~
+:warning: Remember about giving bot role with proper permissions! :warning:
