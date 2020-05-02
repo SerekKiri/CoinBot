@@ -6,6 +6,7 @@ const coins = require('./src/commands/coins')
 const help = require('./src/commands/help')
 const donate = require('./src/commands/donate')
 const github = require('./src/commands/github')
+const discord = require('./src/commands/discord')
 const token = require('./src/config.json').token
 
 const client = new Discord.Client()
@@ -37,6 +38,9 @@ client.on('message', async (message) => {
         break
       case 'github':
         github(message)
+        break
+      case 'discord':
+        discord(message)
         break
       default:
         crypto(message, command)

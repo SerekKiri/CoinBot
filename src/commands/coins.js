@@ -1,7 +1,7 @@
-const TurndownService = require('turndown');
-const debug = require('debug')('coins');
+const TurndownService = require('turndown')
+const debug = require('debug')('coins')
 
-const turndownService = new TurndownService();
+const turndownService = new TurndownService()
 
 const coin = async (message) => {
   try {
@@ -26,27 +26,31 @@ const coin = async (message) => {
 - !sbd      (Steem Dollars)
 - !etc    (Ethereum Classic)
 - !steem (STEEM)`,
-      color: 0xC6FF00,
+      color: 0xc6ff00,
       footer: {
-        icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
-        text: 'Coin bot by Kiritito, Mickson & takidelfin',
+        icon_url:
+          'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
+        text: 'Coin bot by fosscord',
       },
       author: {
         name: 'Coin bot',
         url: 'https://github.com/quritto/coin_bot',
-        icon_url: 'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
+        icon_url:
+          'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
       },
       fields: [
         {
           name: "You don't see your favourite coin?",
-          value: turndownService.turndown('Write your coin in issue here:</br><a href="https://github.com/quritto/coin_bot/issues">Github.com</a></br>'),
+          value: turndownService.turndown(
+            'Write your coin in issue here:</br><a href="https://github.com/quritto/coin_bot/issues">Github.com</a></br>'
+          ),
         },
       ],
-    };
-    await message.channel.send({ embed });
+    }
+    await message.channel.send({ embed })
   } catch (err) {
-    debug(err);
+    debug(err)
   }
-};
+}
 
-module.exports = coin;
+module.exports = coin

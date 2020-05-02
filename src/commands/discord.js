@@ -3,20 +3,20 @@ const debug = require('debug')
 
 const turndownService = new TurndownService()
 
-const git = async (message) => {
+const mess = async (message) => {
   try {
     const embed = {
-      title: 'Github Repository',
+      title: 'Join our discord server',
       author: {
-        name: 'Github.com',
-        url: 'https://www.github.com',
+        name: 'Discord',
+        url: 'https://discordapp.com/',
         icon_url:
-          'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png',
+          'https://icon2.cleanpng.com/20180628/kvf/kisspng-discord-computer-servers-teamspeak-discord-icon-5b34991d1d3e09.8364918215301737251198.jpg',
       },
       description: turndownService.turndown(
-        '<a href="https://github.com/animek66/coin_bot">CoinBot repository link</a>'
+        '<a href="https://discord.gg/7q5VcC6">Join via this link!</a>'
       ),
-      color: 2369838,
+      color: 151511,
       footer: {
         icon_url:
           'https://cdn.discordapp.com/avatars/395240399750299658/1e9edd0c9edf5a6edb9fd36fcd693a9f.png',
@@ -29,4 +29,4 @@ const git = async (message) => {
   }
 }
 
-module.exports = git
+module.exports = mess
